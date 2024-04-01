@@ -1,0 +1,80 @@
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur( 11.5px );
+  -webkit-backdrop-filter: blur( 11.5px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 0.5rem;
+  padding: 3%;
+  gap: 1rem;
+  p{
+    margin: 0;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  .form__CepInput {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+    input {
+      width: 22rem;
+      padding: 0.5rem;
+      border-radius: 0.2rem;
+      outline: none;
+      &:hover{
+        cursor: text;
+      }
+    }
+    button{
+      border: none;
+      border-radius: 0.2rem;
+      padding: 0.5rem;
+      width: 5rem;
+      transition: all 0.3s linear;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+  .loading {
+    padding-top: 3rem;
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(113, 255, 139);
+  }
+}
+.button__search:hover {
+  background-color: rgb(166, 234, 64);
+}
+.button__clear:hover {
+  background-color: rgb(236, 72, 72);
+}
+
+.Form__CEP__Outputs {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  input {
+    width: 45.3%;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    outline: none;
+    &:hover{
+      cursor: text;
+    }
+  }
+  input:last-child{
+    width: 100%;
+  }
+}
+.error {
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(205, 60, 60);
+}
