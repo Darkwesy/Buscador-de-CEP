@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './FormularioCEP.scss';
 import { IoClose } from "react-icons/io5";
 
-
 function FormularioCEP() {
   const [cep, setCep] = useState('');
   const [name, setName] = useState('');
@@ -25,10 +24,12 @@ function FormularioCEP() {
       setAdress(data);
       openModal();
     }
+
     setTimeout(() => {
       setAdress(data);
       setLoading(false);
     }, 2000);
+
   }
 
   const clearAdress = () => {
@@ -44,6 +45,15 @@ function FormularioCEP() {
 
   const closeModal = () => {
     setModalOpen(false);
+  }
+
+  // Monta estrutura de mensagem;
+
+  const sendMessage = () => { 
+    const message =  encodeURIComponent(`Oi ${name}, aque está o endereço ${adress.logradouro}, ${adress.bairro}, ${adress.localidade}, ${adress.uf}`);
+    const link = `https://api.whatsapp.com/send?phone=${tel}&text=${message}`
+
+    window.open(link);
   }
 
   return (
@@ -79,7 +89,7 @@ function FormularioCEP() {
                 <input type="text" defaultValue={adress.bairro || ''} placeholder='Bairro' />
                 <input type="text" defaultValue={adress.uf || ''} placeholder='UF' />
                 <input type="text" defaultValue={adress.localidade || ''} placeholder='Localidade' />
-                <button type="button">Enviar para o Whatsapp</button>
+                <button type="button" onClick={sendMessage}>Enviar para o Whatsapp</button>
               </form>
             )}
             <button onClick={closeModal} className='input__fechar'><IoClose /></button>
